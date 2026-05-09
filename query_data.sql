@@ -15,8 +15,6 @@ FROM -> SELECT
 SELECT * FROM customer; 
 
 -- Not a best practice, only for ad-hoc, not in app or else latency will increase.
-
-
 -- selecting specific columns
 SELECT customer_id,first_name,last_name
 FROM customer;
