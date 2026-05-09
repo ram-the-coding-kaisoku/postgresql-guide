@@ -27,7 +27,7 @@ FROM customer;
 
 SELECT now();
 
------ COLUMN ALIASESs -----
+----- COLUMN ALIAS -----
 
 /*
 Assign a column or an expression a column alias using the syntax 
