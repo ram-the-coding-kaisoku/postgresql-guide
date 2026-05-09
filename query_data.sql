@@ -4,7 +4,7 @@
 This is a SQL script will help to understand querying data.
 */
 
--- SELECT
+----- SELECT -----
 
 -- selecting all columns
 
@@ -27,7 +27,7 @@ FROM customer;
 
 SELECT now();
 
--- COLUMN ALIAS
+----- COLUMN ALIASESs -----
 
 /*
 Assign a column or an expression a column alias using the syntax 
@@ -39,4 +39,3 @@ The AS keyword is optional.
 
 SELECT customer_id,first_name "customer name"
 FROM customer;
-
