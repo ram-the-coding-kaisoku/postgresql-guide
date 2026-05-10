@@ -46,4 +46,53 @@ SELECT
 FROM
 	CUSTOMER;
 
------
+-----ORDER BY-----
+
+/*
+sort rows ASC / DESC
+can sort based on multiple columns
+Asc is default
+we can sort rows by expression and use thier alias in the ORDER BY  clause.
+*/
+
+-- order by asc
+
+SELECT 
+	customer_id,first_name
+FROM
+	public.customer
+ORDER BY 
+	customer_id;
+
+-- order by desc
+
+SELECT 
+	customer_id,first_name
+FROM
+	public.customer
+ORDER BY 
+	customer_id DESC;
+
+-- order by multiple columns
+
+SELECT
+	customer_id,first_name,last_name
+FROM	
+	customer
+ORDER BY 
+	first_name ASC,
+	last_name DESC;
+
+-- sort rows by expression
+
+SELECT
+	customer_id,
+	LENGTH(first_name) as len
+FROM
+	customer
+ORDER BY
+	len DESC
+LIMIT 
+	10;
+
+	
