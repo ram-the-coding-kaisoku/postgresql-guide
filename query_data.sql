@@ -47,52 +47,66 @@ FROM
 	CUSTOMER;
 
 -----ORDER BY-----
-
 /*
 sort rows ASC / DESC
 can sort based on multiple columns
 Asc is default
 we can sort rows by expression and use thier alias in the ORDER BY  clause.
 */
-
 -- order by asc
-
-SELECT 
-	customer_id,first_name
+SELECT
+	CUSTOMER_ID,
+	FIRST_NAME
 FROM
-	public.customer
-ORDER BY 
-	customer_id;
+	PUBLIC.CUSTOMER
+ORDER BY
+	CUSTOMER_ID;
 
 -- order by desc
-
-SELECT 
-	customer_id,first_name
+SELECT
+	CUSTOMER_ID,
+	FIRST_NAME
 FROM
-	public.customer
-ORDER BY 
-	customer_id DESC;
+	PUBLIC.CUSTOMER
+ORDER BY
+	CUSTOMER_ID DESC;
 
 -- order by multiple columns
-
 SELECT
-	customer_id,first_name,last_name
-FROM	
-	customer
-ORDER BY 
-	first_name ASC,
-	last_name DESC;
+	CUSTOMER_ID,
+	FIRST_NAME,
+	LAST_NAME
+FROM
+	CUSTOMER
+ORDER BY
+	FIRST_NAME ASC,
+	LAST_NAME DESC;
 
 -- sort rows by expression
-
 SELECT
-	customer_id,
-	LENGTH(first_name) as len
+	CUSTOMER_ID,
+	LENGTH(FIRST_NAME) AS LEN
 FROM
-	customer
+	CUSTOMER
 ORDER BY
-	len DESC
-LIMIT 
+	LEN DESC
+LIMIT
 	10;
 
-	
+-- nulls will be considered 
+-- nulls first -> place nulls before values,
+-- nulls last -> place nulls after values.
+SELECT
+	*
+FROM
+	SORT_DEMO
+ORDER BY
+	NUM NULLS FIRST;
+
+-- order by desc defaults to nulls first to reverse that need to use nulls last
+SELECT
+	*
+FROM
+	SORT_DEMO
+ORDER BY
+	NUM DESC;
