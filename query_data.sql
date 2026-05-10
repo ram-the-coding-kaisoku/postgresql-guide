@@ -52,6 +52,8 @@ sort rows ASC / DESC
 can sort based on multiple columns
 Asc is default
 we can sort rows by expression and use thier alias in the ORDER BY  clause.
+
+FROM -> SELECT -> ORDER BY
 */
 -- order by asc
 SELECT
