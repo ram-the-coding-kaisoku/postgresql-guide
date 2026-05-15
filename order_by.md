@@ -2,6 +2,8 @@
 How to sort records fetched from table, usually it will return in the order it is stored in disk.
 To return the records in a specific order desc/asc `ORDER BY` clause will help.
 
+![from_select_orderby_flow](./imgs/from_select_order.png)
+
 ## ORDER BY ASCENDING
 Sort records in ascending order.
 ```sql
