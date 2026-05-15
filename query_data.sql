@@ -1,5 +1,6 @@
 -- QUERYING DATA
 -- V 1.0
+-- check for merge
 /*
 This is a SQL script will help to understand querying data.
 */
