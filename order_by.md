@@ -38,3 +38,10 @@ select customer_id, length(first_name) as len
 from customer order by len desc;
 ```
 - Sort based on the expression
+
+## ORDERING NULL
+```sql
+ORDER BY sort_expression [ASC | DESC] [NULLS FIRST | NULLS LAST]
+```
+
+- `NULL` values are treated as no data, By default nulls will be in the last. If the nulls to be sort in first use `NULLS FIRST`.
