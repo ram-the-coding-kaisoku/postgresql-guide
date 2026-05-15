@@ -6,6 +6,8 @@ This guide will help remove duplicate values in the result set.
 
 ### Sample Table
 
+Create a sample table.
+
 ```SQL
 CREATE TABLE colors(
   id SERIAL PRIMARY KEY,
@@ -36,3 +38,17 @@ FROM
   colors;
 ```
 - Only give unique values of the columns
+
+## DISTINCT using multiple columns
+
+```SQL
+SELECT
+ DISTINCT bcolor,fcolor
+FROM
+  colors;
+```
+
+- If multiple columns were given it will fetch based on the combination of the mentioned columns.
+
+
+
