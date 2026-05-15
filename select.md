@@ -1,7 +1,7 @@
 # SELECT
 This section will be a quick guide on select statements.  
 
-![from_select](from_select.png)
+![from_select.png](from_select.png)
 
 ### select all columns.
 ```sql
