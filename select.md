@@ -2,7 +2,7 @@
 This section will be a quick guide on select statements.  
 
 ![from_select_flow](from_select.png)
-![alt text](image.png)
+
 
 ## select all columns.
 ```sql
