@@ -1,11 +1,14 @@
 # SELECT
 This section will be a quick guide on select statements.  
 
+> [!IMPORTANT]
+> Flow of SELECT comand is FROM -> SELECT.
+
 ### select all columns.
 ```sql
 SELECT * FROM customer;
 ```
-> [!NOTE]
+> [!CAUTION]
 > using * in production queries is not recommended, only for adhoc queries, select should only retrive what application needs nothing more.
 
 ### select specific columns.
