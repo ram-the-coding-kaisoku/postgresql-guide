@@ -50,6 +50,23 @@ FROM
 
 - If multiple columns were given it will fetch based on the combination of the mentioned columns.
 
+# DISTINCT ON
 
+- Need for `DISTINCT ON` simply groups the duplicate and returns only the first occurent which is determined by the order by where `DISTINCT` simply removes duplicate records based on the column.
+
+> [!NOTE]
+> We can use `ORDER BY` in the `DISTINCT ON` to order the groups.
+
+
+## DISTINCT ON USING SINGLE COLUMN
+
+```SQL
+SELECT DISTINCT
+	ON (BCOLOR) BCOLOR
+FROM
+	COLORS;
+```
+
+## DISTINCT ON USING MULTIPLE COLUMN
 
 
