@@ -55,7 +55,7 @@ FROM
 - Need for `DISTINCT ON` simply groups the duplicate and returns only the first occurent which is determined by the order by where `DISTINCT` simply removes duplicate records based on the column.
 
 > [!NOTE]
-> We can use `ORDER BY` in the `DISTINCT ON` to order the groups.
+> We can use `ORDER BY` in the `DISTINCT ON` to order the groups. And should be ordered by using the column in `DISTINCT ON` clause.
 
 ```SQL
 
@@ -80,9 +80,27 @@ from mark;
 "ram"	70
 */
 
+
+select distinct on (name) name,
+mark
+from mark;
+/*
+"ram"	50
+"sri"	50
+*/
+
+
 select distinct on (name,mark) name,
 mark
 from mark;
+
+/*
+"ram"	50
+"ram"	70
+"ram"	90
+"sri"	50
+*/
 ```
+
 
 
