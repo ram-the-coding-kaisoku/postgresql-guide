@@ -22,5 +22,6 @@ ORDER BY
 | = | Equals | 
 | > | Greater than |
 | >= | Greater than or equal to |
-| < | lesser than |
-| <= | lesser than or equal to|
+| < | Lesser than |
+| <= | Lesser than or equal to|
+| != | Not equal to|
