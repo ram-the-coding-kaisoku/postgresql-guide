@@ -33,4 +33,4 @@ FROM customer;
 ```sql
 SELECT now();
 ```
-- FROM clause is optional.
+- `FROM` clause is optional.
