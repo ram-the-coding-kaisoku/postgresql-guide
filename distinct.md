@@ -57,16 +57,32 @@ FROM
 > [!NOTE]
 > We can use `ORDER BY` in the `DISTINCT ON` to order the groups.
 
-
-## DISTINCT ON USING SINGLE COLUMN
-
 ```SQL
-SELECT DISTINCT
-	ON (BCOLOR) BCOLOR
-FROM
-	COLORS;
-```
 
-## DISTINCT ON USING MULTIPLE COLUMN
+select * from mark;
+
+/*
+"ram"	50
+"sri"	50
+"ram"	70
+"ram"	90
+"sri"	50
+"ram"	70
+*/
+
+select distinct name, mark
+from mark;
+
+/*
+"ram"	50
+"sri"	50
+"ram"	90
+"ram"	70
+*/
+
+select distinct on (name,mark) name,
+mark
+from mark;
+```
 
 
