@@ -57,3 +57,5 @@ select amount,customer_id
 from payment 
 where amount != 7.99;
 ```
+
+- We can use other operations as well with `WHERE` clause.
