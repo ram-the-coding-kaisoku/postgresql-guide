@@ -27,7 +27,7 @@ FROM customer;
 SELECT customer_id, first_name ||' '||last_name AS "Full name"
 FROM customer;
 ```
-- AS clause is optional we can simply mention the alias name, "" is needed when white spaces are included.
+- `AS` clause is optional we can simply mention the alias name, "" is needed when white spaces are included.
 
 ## Without FROM clause.
 ```sql
