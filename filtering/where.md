@@ -25,3 +25,35 @@ ORDER BY
 | < | Lesser than |
 | <= | Lesser than or equal to|
 | != | Not equal to|
+
+```SQL
+-- EQUALS TO 
+select amount,customer_id
+from payment 
+where amount = 7.99;
+
+-- GREATER THAN 
+select amount,customer_id
+from payment 
+where amount > 7.99;
+
+-- GREATER THAN OR EQUAL TO
+select amount,customer_id
+from payment 
+where amount >= 7.99;
+
+-- LESSER THAN 
+select amount,customer_id
+from payment 
+where amount < 7.99;
+
+-- LESSER THAN OR EQUAL TO
+select amount,customer_id
+from payment 
+where amount <= 7.99;
+
+-- NOT EQUAL TO
+select amount,customer_id
+from payment 
+where amount != 7.99;
+```
