@@ -10,3 +10,5 @@
 |t|n|n|
 |f|n|f|
 |n|n|n|
+
+- simple check 
