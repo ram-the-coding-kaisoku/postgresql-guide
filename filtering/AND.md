@@ -11,4 +11,10 @@
 |f|n|f|
 |n|n|n|
 
-- simple check 
+```SQL
+select title,rating,length
+from film
+where length > 90 and rating='PG-13'
+```
+
+- When the condition of both to be satisified `AND` will filter.
