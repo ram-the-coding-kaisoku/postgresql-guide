@@ -16,21 +16,21 @@ on the following architectures:
 - arm64 (LTS releases only)
 - ppc64el (LTS releases only)
 
-### Included in Distribution
+### 1. Included in Distribution
 Ubuntu includes PostgreSQL by default. 
 
 ```bash
 sudo apt install postgresql
 ```
 
-### Automated Repository Configuration
+### 2. Automated Repository Configuration
 
 ```bash
 sudo apt install -y postgresql-common
 sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 ```
 
-### Manual Repository configuration
+### 3. Manual Repository configuration
 
 1. Import the repository key:
 
