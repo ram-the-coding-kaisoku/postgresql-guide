@@ -1,5 +1,5 @@
 # Installation Guide
-This guide will help us install postgresql we will cover various methods to install postgres in future releases, As of now we will install using packages in ubuntu 24.04 
+This guide will help us install postgresql , we will cover various methods to install postgres in future releases, As of now we will install using packages and repository configs in ubuntu 24.04 postgresql-18
 
 ## Install postgres using apt repository in ubuntu.
 
