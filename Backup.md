@@ -3,7 +3,7 @@ This guide will help us in taking backups and restore them in postgreSQL server 
 
 ## Backup
 
-# pg_dump
+### pg_dump
 
 - pg_dump utility is a built in tool
 - Takes consistent backup without affecting other concurrent connections.
@@ -17,3 +17,8 @@ This guide will help us in taking backups and restore them in postgreSQL server 
 - Most flexible file format would be using `-Fc` and  `-Fd`
 - Only Directory file format supports parallel dumps
 - archive format supports parallel restoration and compressed by default.
+
+#### Single database backup
+
+```bash
+pg_dump 
