@@ -40,7 +40,7 @@ sudo install -d /usr/share/postgresql-common/pgdg
 sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc
 ```
 
-2. Create /etc/apt/sources.list.d/pgdg.sources. The distributions are called codename-pgdg. In the example, replace resolute with the actual distribution you are using. File contents:
+2. Create /etc/apt/sources.list.d/pgdg.sources. The distributions are called codename-pgdg. In the example, replace resolute with the actual distribution we are using. File contents:
 
     - Create the file:
 
@@ -60,7 +60,7 @@ sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail htt
     sudo sed -i "s/resolute/$(. /etc/os-release && echo "$VERSION_CODENAME")/g" /etc/apt/sources.list.d/pgdg.sources
     ```
 
-3. Install PostgreSQL:(replace "18" by the version you want)
+3. Install PostgreSQL:(replace "18" by the version we want)
 
 ```bash
 sudo apt update
@@ -77,5 +77,11 @@ sudo apt install postgresql-18
 | postgresql-doc-18 |	documentation
 | libpq-dev |	libraries and headers for C language frontend development
 | postgresql-server-dev-18 |	libraries and headers for C language backend development
+
+For example if we want to install only client package of version 17
+
+```bash
+sudo apt install postgresql-client-17
+```
 
 
