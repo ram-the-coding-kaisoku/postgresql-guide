@@ -3,6 +3,19 @@ This guide will help us install postgresql we will cover various methods to inst
 
 ## Install postgres using apt repository in ubuntu.
 
+The PostgreSQL Apt repository supports the current versions of Ubuntu:
+
+- stonking (26.10, non-LTS)
+- resolute (26.04, LTS)
+- noble (24.04, LTS)
+- jammy (22.04, LTS)
+
+on the following architectures:
+
+- amd64
+- arm64 (LTS releases only)
+- ppc64el (LTS releases only)
+
 ### Included in Distribution
 Ubuntu includes PostgreSQL by default. 
 
@@ -57,7 +70,8 @@ sudo apt install postgresql-18
 > [!NOTE] 
 > The repository contains many different packages including third party addons. The most common and important packages are (substitute the version number as required):
 
-
+| Packages | Description |
+| --- | --- |
 | postgresql-client-18 | client libraries and client binaries |
 | postgresql-18 |	core database server
 | postgresql-doc-18 |	documentation
