@@ -33,7 +33,7 @@ PostgREST
 2. PostgreSQL RDS up and running.
 3. connection between the server to RDS . 5432 port whitelisted in security group.
 4. PostgREST requires libpq
-    - To install in ubuntu
+
     ```bash
     sudo apt-get install libpq-dev
     ```
