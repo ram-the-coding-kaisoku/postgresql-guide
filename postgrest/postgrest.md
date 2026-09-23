@@ -126,8 +126,32 @@ If the configuration is correct, PostgREST will work fine
 
 ## Test API call
 
-we can simply curl our api endpoint to check the response
+we can simply curl in shell or call our api endpoint in web browser to check the response
 ```bash
-curl http://localhost:3000/todos
+http://localhost:3000/todos 
+```
+
+we will get like this 
+```json
+[
+  {
+    "id": 3,
+    "done": false,
+    "task": "cooking",
+    "due": null
+  },
+  {
+    "id": 4,
+    "done": false,
+    "task": "water plants",
+    "due": null
+  },
+  {
+    "id": 5,
+    "done": false,
+    "task": "feed chopper",
+    "due": null
+  }
+]
 ```
 
