@@ -19,12 +19,12 @@ It sits in front of PostgreSQL.<br>
 
 Traditional API request
 
-[Tradition-API-request](/images/traditional_api_arch.png)
+![Tradition-API-request](/images/traditional_api_arch.png)
 
 
 PostgREST 
 
-[Tradition-API-request](/images/PostgREST_api_arch.png)
+![Tradition-API-request](/images/PostgREST_api_arch.png)
 
 
 ## prerequisite
