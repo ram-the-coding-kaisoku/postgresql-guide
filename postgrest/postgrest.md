@@ -1,5 +1,45 @@
 # PostgREST Implementation with AWS RDS.
-This is a simple guide on implementing postgrest for RDS
+
+The name itself gives you a clue:
+
+PostgreSQL + REST = PostgREST
+
+It is a server that:
+
+- connects to PostgreSQL
+- looks at your database schema
+- exposes tables/views/functions as REST endpoints
+- receives HTTP requests
+- translates those requests into PostgreSQL operations
+- returns PostgreSQL results as JSON
+
+It is not a database.<br>
+It is not a replacement for PostgreSQL.<br>
+It sits in front of PostgreSQL.<br>
+
+Traditional API request
+
+[Tradition-API-request](/images/traditional_api_arch.png)
+
+
+PostgREST 
+
+[Tradition-API-request](/images/PostgREST_api_arch.png)
+
+
+## prerequisite
+
+1. server to install PostgREST
+2. PostgreSQL RDS up and running.
+3. connection between the server to RDS . 5432 port whitelisted in security group.
+4. PostgREST requires libpq
+    - To install in ubuntu
+    ```bash
+    sudo apt-get install libpq-dev
+    ```
+
+
+
 ## PostgREST installation.
 Download and install the PostgREST release supported by the target environment. For this implementation, PostgREST version 16.3 is used.
 
@@ -71,3 +111,23 @@ Now let's run the PostgREST
 ```bash
 postgrest tutorial.conf
 ```
+If the configuration is correct, PostgREST will work fine
+
+```23/Sep/2026:13:28:27 +0000: Starting PostgREST 16.3...
+23/Sep/2026:13:28:27 +0000: Successfully connected to PostgreSQL 18.3 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 12.4.0, 64-bit
+23/Sep/2026:13:28:27 +0000: Connection Pool initialized with a maximum size of 10 connections
+23/Sep/2026:13:28:27 +0000: Listener connected to PostgreSQL 18.3 on aarch64-unknown-linux-gnu, compiled by aarch64-unknown-linux-gnu-gcc (GCC) 12.4.0, 64-bit on "db.xxxxxxx.ap-south-1.rds.amazonaws.com:5432" and listening for database notifications on the "pgrst" channel
+23/Sep/2026:13:28:27 +0000: Config reloaded
+23/Sep/2026:13:28:27 +0000: API server listening on 0.0.0.0:3000
+23/Sep/2026:13:28:27 +0000: Schema cache queried in 57.2 milliseconds 
+23/Sep/2026:13:28:27 +0000: Schema cache loaded 1 Relations, 0 Relationships, 0 RPCs, 0 Domain Representations, 4 Media Type Handlers
+23/Sep/2026:13:28:27 +0000: Schema cache loaded in 0.1 milliseconds
+```
+
+## Test API call
+
+we can simply curl our api endpoint to check the response
+```bash
+curl http://localhost:3000/todos
+```
+
