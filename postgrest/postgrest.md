@@ -131,7 +131,7 @@ we can simply curl in shell or call our api endpoint in web browser to check the
 http://localhost:3000/todos 
 ```
 
-we will get like this 
+we will get our response like this 
 ```json
 [
   {
