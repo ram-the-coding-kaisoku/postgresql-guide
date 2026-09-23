@@ -16,7 +16,7 @@ A quick and simple guide to perform backups and restore them using pg_dump and p
 - Only Directory file format supports parallel dumps
 - archive format supports parallel restoration and compressed by default.
 
-!(pg_dump architecture)[/images/pg_dump_architecture.png]
+![pg_dump architecture](/images/pg_dump_architecture.png)
 
 ### when to use pg_dump?
 
