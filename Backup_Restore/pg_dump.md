@@ -53,5 +53,7 @@ However we cannot actually use this file format using pg_restore to restore in t
 psql -h pg-db.xxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres < postgres.sql
 ```
 
+2. 
+
 
 
