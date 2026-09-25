@@ -47,7 +47,7 @@ pg_dump --verbose -h db.xxxxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d p
 - `> postgres.sql` outputing the dump to a `.sql` format
 - `--verbose` gives the status while taking dump easy for troubleshooting backup errors. we will get output like below.
 
-`
+```
 pg_dump: executing SELECT pg_catalog.set_config('search_path', '', false);<br>
 pg_dump: last built-in OID is 16383<br>
 pg_dump: reading extensions<br>
@@ -134,4 +134,4 @@ pg_dump: creating FK CONSTRAINT "public.character_info character_info_planet_id_
 pg_dump: creating FK CONSTRAINT "public.character_info character_info_ship_id_fkey" <br>
 pg_dump: creating ACL "SCHEMA api" <br>
 pg_dump: creating ACL "api.TABLE todos" <br>
-`
+```
