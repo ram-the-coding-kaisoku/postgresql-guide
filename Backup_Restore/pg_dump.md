@@ -48,90 +48,90 @@ pg_dump --verbose -h db.xxxxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d p
 - `--verbose` gives the status while taking dump easy for troubleshooting backup errors. we will get output like below.
 
 `
-pg_dump: executing SELECT pg_catalog.set_config('search_path', '', false);
-pg_dump: last built-in OID is 16383
-pg_dump: reading extensions
-pg_dump: identifying extension members
-pg_dump: reading schemas
-pg_dump: reading user-defined tables
-pg_dump: reading user-defined functions
-pg_dump: reading user-defined types
-pg_dump: reading procedural languages
-pg_dump: reading user-defined aggregate functions
-pg_dump: reading user-defined operators
-pg_dump: reading user-defined access methods
-pg_dump: reading user-defined operator classes
-pg_dump: reading user-defined operator families
-pg_dump: reading user-defined text search parsers
-pg_dump: reading user-defined text search templates
-pg_dump: reading user-defined text search dictionaries
-pg_dump: reading user-defined text search configurations
-pg_dump: reading user-defined foreign-data wrappers
-pg_dump: reading user-defined foreign servers
-pg_dump: reading default privileges
-pg_dump: reading user-defined collations
-pg_dump: reading user-defined conversions
-pg_dump: reading type casts
-pg_dump: reading transforms
-pg_dump: reading table inheritance information
-pg_dump: reading event triggers
-pg_dump: finding extension tables
-pg_dump: finding inheritance relationships
-pg_dump: reading column info for interesting tables
-pg_dump: finding table default expressions
-pg_dump: flagging inherited columns in subtables
-pg_dump: reading partitioning data
-pg_dump: reading indexes
-pg_dump: flagging indexes in partitioned tables
-pg_dump: reading extended statistics
-pg_dump: reading constraints
-pg_dump: reading triggers
-pg_dump: reading rewrite rules
-pg_dump: reading policies
-pg_dump: reading row-level security policies
-pg_dump: reading publications
-pg_dump: reading publication membership of tables
-pg_dump: reading publication membership of schemas
-pg_dump: reading subscriptions
-pg_dump: reading subscription membership of tables
-pg_dump: reading large objects
-pg_dump: reading dependency data
-pg_dump: saving encoding = UTF8
-pg_dump: saving "standard_conforming_strings = on"
-pg_dump: saving "search_path = "
-pg_dump: creating SCHEMA "api"
-pg_dump: creating TABLE "api.todos"
-pg_dump: creating SEQUENCE "api.todos_id_seq"
-pg_dump: creating TABLE "public.character_info"
-pg_dump: creating SEQUENCE "public.character_info_character_id_seq"
-pg_dump: creating SEQUENCE OWNED BY "public.character_info_character_id_seq"
-pg_dump: creating TABLE "public.planets"
-pg_dump: creating SEQUENCE "public.planets_planet_id_seq"
-pg_dump: creating SEQUENCE OWNED BY "public.planets_planet_id_seq"
-pg_dump: creating TABLE "public.ships"
-pg_dump: creating SEQUENCE "public.ships_ship_id_seq"
-pg_dump: creating SEQUENCE OWNED BY "public.ships_ship_id_seq"
-pg_dump: creating DEFAULT "public.character_info character_id"
-pg_dump: creating DEFAULT "public.planets planet_id"
-pg_dump: creating DEFAULT "public.ships ship_id"
-pg_dump: processing data for table "api.todos"
-pg_dump: dumping contents of table "api.todos"
-pg_dump: processing data for table "public.character_info"
-pg_dump: dumping contents of table "public.character_info"
-pg_dump: processing data for table "public.planets"
-pg_dump: dumping contents of table "public.planets"
-pg_dump: processing data for table "public.ships"
-pg_dump: dumping contents of table "public.ships"
-pg_dump: executing SEQUENCE SET todos_id_seq
-pg_dump: executing SEQUENCE SET character_info_character_id_seq
-pg_dump: executing SEQUENCE SET planets_planet_id_seq
-pg_dump: executing SEQUENCE SET ships_ship_id_seq
-pg_dump: creating CONSTRAINT "api.todos todos_pkey"
-pg_dump: creating CONSTRAINT "public.character_info character_info_pkey"
-pg_dump: creating CONSTRAINT "public.planets planets_pkey"
-pg_dump: creating CONSTRAINT "public.ships ships_pkey"
-pg_dump: creating FK CONSTRAINT "public.character_info character_info_planet_id_fkey"
-pg_dump: creating FK CONSTRAINT "public.character_info character_info_ship_id_fkey"
-pg_dump: creating ACL "SCHEMA api"
-pg_dump: creating ACL "api.TABLE todos"
+pg_dump: executing SELECT pg_catalog.set_config('search_path', '', false);<br>
+pg_dump: last built-in OID is 16383<br>
+pg_dump: reading extensions<br>
+pg_dump: identifying extension members<br>
+pg_dump: reading schemas<br>
+pg_dump: reading user-defined tables<br>
+pg_dump: reading user-defined functions<br>
+pg_dump: reading user-defined types <br>
+pg_dump: reading procedural languages <br>
+pg_dump: reading user-defined aggregate functions <br>
+pg_dump: reading user-defined operators <br>
+pg_dump: reading user-defined access methods <br>
+pg_dump: reading user-defined operator classes <br>
+pg_dump: reading user-defined operator families <br>
+pg_dump: reading user-defined text search parsers <br>
+pg_dump: reading user-defined text search templates <br>
+pg_dump: reading user-defined text search dictionaries <br>
+pg_dump: reading user-defined text search configurations <br>
+pg_dump: reading user-defined foreign-data wrappers <br>
+pg_dump: reading user-defined foreign servers <br>
+pg_dump: reading default privileges <br>
+pg_dump: reading user-defined collations <br>
+pg_dump: reading user-defined conversions <br>
+pg_dump: reading type casts <br>
+pg_dump: reading transforms <br>
+pg_dump: reading table inheritance information <br>
+pg_dump: reading event triggers <br>
+pg_dump: finding extension tables <br>
+pg_dump: finding inheritance relationships <br>
+pg_dump: reading column info for interesting tables <br>
+pg_dump: finding table default expressions <br>
+pg_dump: flagging inherited columns in subtables <br>
+pg_dump: reading partitioning data <br>
+pg_dump: reading indexes <br>
+pg_dump: flagging indexes in partitioned tables <br>
+pg_dump: reading extended statistics <br>
+pg_dump: reading constraints <br>
+pg_dump: reading triggers <br>
+pg_dump: reading rewrite rules <br>
+pg_dump: reading policies <br>
+pg_dump: reading row-level security policies <br>
+pg_dump: reading publications <br>
+pg_dump: reading publication membership of tables <br>
+pg_dump: reading publication membership of schemas <br>
+pg_dump: reading subscriptions <br>
+pg_dump: reading subscription membership of tables <br>
+pg_dump: reading large objects <br>
+pg_dump: reading dependency data <br>
+pg_dump: saving encoding = UTF8 <br>
+pg_dump: saving "standard_conforming_strings = on" <br>
+pg_dump: saving "search_path = " <br>
+pg_dump: creating SCHEMA "api" <br>
+pg_dump: creating TABLE "api.todos" <br>
+pg_dump: creating SEQUENCE "api.todos_id_seq" <br>
+pg_dump: creating TABLE "public.character_info" <br>
+pg_dump: creating SEQUENCE "public.character_info_character_id_seq" <br>
+pg_dump: creating SEQUENCE OWNED BY "public.character_info_character_id_seq" <br>
+pg_dump: creating TABLE "public.planets" <br>
+pg_dump: creating SEQUENCE "public.planets_planet_id_seq" <br>
+pg_dump: creating SEQUENCE OWNED BY "public.planets_planet_id_seq" <br>
+pg_dump: creating TABLE "public.ships" <br>
+pg_dump: creating SEQUENCE "public.ships_ship_id_seq" <br>
+pg_dump: creating SEQUENCE OWNED BY "public.ships_ship_id_seq" <br>
+pg_dump: creating DEFAULT "public.character_info character_id" <br>
+pg_dump: creating DEFAULT "public.planets planet_id" <br>
+pg_dump: creating DEFAULT "public.ships ship_id" <br>
+pg_dump: processing data for table "api.todos" <br>
+pg_dump: dumping contents of table "api.todos" <br>
+pg_dump: processing data for table "public.character_info" <br>
+pg_dump: dumping contents of table "public.character_info" <br>
+pg_dump: processing data for table "public.planets" <br>
+pg_dump: dumping contents of table "public.planets" <br>
+pg_dump: processing data for table "public.ships" <br>
+pg_dump: dumping contents of table "public.ships" <br>
+pg_dump: executing SEQUENCE SET todos_id_seq <br>
+pg_dump: executing SEQUENCE SET character_info_character_id_seq <br>
+pg_dump: executing SEQUENCE SET planets_planet_id_seq <br>
+pg_dump: executing SEQUENCE SET ships_ship_id_seq <br>
+pg_dump: creating CONSTRAINT "api.todos todos_pkey" <br>
+pg_dump: creating CONSTRAINT "public.character_info character_info_pkey" <br>
+pg_dump: creating CONSTRAINT "public.planets planets_pkey" <br>
+pg_dump: creating CONSTRAINT "public.ships ships_pkey" <br>
+pg_dump: creating FK CONSTRAINT "public.character_info character_info_planet_id_fkey" <br>
+pg_dump: creating FK CONSTRAINT "public.character_info character_info_ship_id_fkey" <br>
+pg_dump: creating ACL "SCHEMA api" <br>
+pg_dump: creating ACL "api.TABLE todos" <br>
 `
