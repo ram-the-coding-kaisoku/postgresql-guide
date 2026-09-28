@@ -64,7 +64,7 @@ pg_dump -Fc --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres 
 Restore
 
 ```bash
-pg_restore --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U postgres -d template1 postgres.dump
+pg_restore --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d template1 postgres.dump
 ```
 
 - We should pass another database in the command, pg_restore will only connect to the other database for creating the intended database then switch the connection before restoring database objects.
