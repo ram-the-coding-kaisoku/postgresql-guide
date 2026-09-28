@@ -36,7 +36,7 @@ Tar (-Ft) .tar | &#9745; | &#9745; | &#9746;
 
 ### sample scenarios
 
-1. Plain SQL backup and restore
+1. Plain SQL backup and restore:
 
 ```bash
 pg_dump --verbose -h db.xxxxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres > postgres.sql
@@ -73,6 +73,10 @@ pg_restore --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -
 pg_restore: creating DATABASE "postgres"
 pg_restore: connecting to new database "postgres"
 ```
+
+3. Take Backup of single table:
+
+
 
 
 
