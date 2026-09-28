@@ -53,7 +53,20 @@ However we cannot actually use this file format using pg_restore to restore in t
 psql -h pg-db.xxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres < postgres.sql
 ```
 
-2. 
+2. To dump a database into a custom-format archive file:
+
+Backup
+
+```bash
+pg_dump -Fc --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres > postgres.dump
+```
+
+Restore
+
+```bash
+pg_restore --verbose -C pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres postgres.dump
+```
+
 
 
 
