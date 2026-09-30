@@ -79,7 +79,7 @@ pg_restore: connecting to new database "postgres"
 Backup 
 
 ```bash
-pg_dump -Fc --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U postgres -d template1 -n public -t planets -t ships > tables.dump
+pg_dump -Fc --verbose -h pg-db.xxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d template1 -n public -t planets -t ships > tables.dump
 ```
 - `-n` Give the schema name where tables live.
 - `-t` Give the table name which we want to take backup. Multiple table requires multiple `-t` options.
@@ -87,7 +87,7 @@ pg_dump -Fc --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U post
 Restore
 
 ```bash
-pg_restore --clean --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U postgres -d postgres tables.dump
+pg_restore --clean --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres tables.dump
 ```
 - `--clean` flag will drop the database objects before restoring them.
 
