@@ -76,6 +76,22 @@ pg_restore: connecting to new database "postgres"
 
 3. Take Backup of single table:
 
+Backup 
+
+```bash
+pg_dump -Fc --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U postgres -d template1 -n public -t planets -t ships > tables.dump
+```
+- `-n` Give the schema name where tables live.
+- `-t` Give the table name which we want to take backup. Multiple table requires multiple `-t` options.
+
+Restore
+
+```bash
+pg_restore --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U postgres -d postgres tables.dump
+```
+
+
+
 
 
 
