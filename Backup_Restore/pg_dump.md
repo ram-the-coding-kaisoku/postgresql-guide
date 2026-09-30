@@ -87,8 +87,11 @@ pg_dump -Fc --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U post
 Restore
 
 ```bash
-pg_restore --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U postgres -d postgres tables.dump
+pg_restore --clean --verbose -h pg-db.c5k608oy2jgm.ap-south-1.rds.amazonaws.com -U postgres -d postgres tables.dump
 ```
+- `--clean` flag will drop the database objects before restoring them.
+
+
 
 
 
