@@ -91,6 +91,9 @@ pg_restore --clean --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U po
 ```
 - `--clean` flag will drop the database objects before restoring them.
 
+To get more detail about pg_dump utility check [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+
+
 
 
 
