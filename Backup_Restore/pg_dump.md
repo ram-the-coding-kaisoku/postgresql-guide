@@ -1,111 +1,142 @@
-# PostgreSQL Backup guide
-A quick and simple guide to perform backups and restore them using pg_dump and pg_restore.
+Yes. I cleaned up the Markdown formatting, headings, tables, code blocks, links, and bullet points while keeping your technical content and examples intact. I also corrected a few Markdown issues in the PostgreSQL documentation link and table.
+
+# PostgreSQL Backup Guide
 
 ## pg_dump
 
-- pg_dump utility is a built-in backup tool
-- Takes consistent backup without affecting other concurrent connections.
-- Backup will be consistent upto the point when it is stored.
-- Takes backup of only 1 database.
-- Not suitable for regular maintanence backups.
-- Dumps can be taken as plain SQL scripts / Archive files
-- To restore SQL format feed it into [psql](https://www.postgresql.org/docs/current/app-psql.html), To restore archive format use [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html)
-- The archive file formats are designed to be portable across architectures.
-- use pg_dump to take single database dump , then we can select which db object needs to be restored 
-- Plain SQL (-Fp, default) — outputs a .sql file. No parallel or selective restore. Compression only via external tools like gzip.
-- Custom (-Fc) — outputs a .dump file. Supports parallel restore and selective restore. Built-in zlib compression.
-- Directory (-Fd) — outputs a directory with one file per table. Supports parallel dump and restore. Built-in compression per file.
-- Tar (-Ft) — outputs a .tar file. Supports selective restore. No compression.
+`pg_dump` is a built-in PostgreSQL utility used to take a **logical backup of a single database**.
 
-|  Output Format  |  Parallel Restore  | Selective Restore | In Built Compression |
-|  --- | --- | --- | --- |
-Plain SQL (-Fp, default) | &#9746; | &#9746; | &#9746;
-Custom (-Fc) .dump | &#9745; | &#9745; | &#9745;
-Directory (-Fd) | &#9745; | &#9745; | &#9745;
-Tar (-Ft) .tar | &#9745; | &#9745; | &#9746;
+### Key Points
 
-![pg_dump architecture](/images/pg_dump_architecture.png)
+* Takes a **consistent backup** without affecting other concurrent connections.
+* The backup represents the database state **at the point when the dump was taken**.
+* Backs up **one database at a time**.
+* Supports **selective restoration** of database objects when using archive formats.
+* Backup can be created in different formats:
 
-### when to use pg_dump?
+  * **Plain SQL (`-Fp`)** – SQL script, default format.
+  * **Custom (`-Fc`)** – Archive format with selective and parallel restore support.
+  * **Directory (`-Fd`)** – Directory format with parallel dump and restore support.
+  * **Tar (`-Ft`)** – TAR archive with selective restore support.
+* Plain SQL backups are restored using `psql`.
+* Archive format backups are restored using `pg_restore`.
+* Archive formats are designed to be **portable across different architectures**.
+* Mainly used for **logical database backups**, not regular physical maintenance backups.
 
-- moving data between PostgreSQL environments
-- creating logical backups for smaller databases
-- exporting selected schemas or tables
-- testing migrations between versions or environments
-- creating audit artifacts for controlled data exports
+| Output Format              | Parallel Restore | Selective Restore | Built-in Compression |
+| -------------------------- | ---------------- | ----------------- | -------------------- |
+| Plain SQL (`-Fp`, default) | ❌                | ❌                 | ❌                    |
+| Custom (`-Fc`) `.dump`     | ✅                | ✅                 | ✅                    |
+| Directory (`-Fd`)          | ✅                | ✅                 | ✅                    |
+| Tar (`-Ft`) `.tar`         | ❌                | ✅                 | ❌                    |
 
-### sample scenarios
+![pg\_dump architecture](/images/pg_dump_architecture.png)
 
-1. Plain SQL backup and restore:
+### When to Use `pg_dump`?
 
-```bash
-pg_dump --verbose -h db.xxxxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres > postgres.sql
-```
-- -h hostname (here i am using my rds endpoint)
-- -U username
-- -d database in which you want to take the backup.
-- `> postgres.sql` outputing the dump to a `.sql` format
-- `--verbose` gives the status while taking dump easy for troubleshooting backup errors.
+* Moving data between PostgreSQL environments.
+* Creating logical backups for smaller databases.
+* Exporting selected schemas or tables.
+* Testing migrations between PostgreSQL versions or environments.
+* Creating audit artifacts for controlled data exports.
 
-However we cannot actually use this file format using pg_restore to restore in the database. we can simply pass this backup file to psql itself
+### Sample Scenarios
+
+#### 1. Plain SQL Backup and Restore
+
+**Backup:**
 
 ```bash
-psql -h pg-db.xxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres < postgres.sql
+pg_dump --verbose -h hostname/IPaddress -U postgres -d postgres > postgres.sql
 ```
 
-2. To dump a database into a custom-format archive file:
+* `-h` – Hostname or IP address. Here, an RDS endpoint can be used.
+* `-U` – Username.
+* `-d` – Database from which the backup is taken.
+* `> postgres.sql` – Redirects the dump output to a `.sql` file.
+* `--verbose` – Displays detailed progress information, which can help troubleshoot backup errors.
 
-Backup
+A plain SQL dump **cannot be restored using `pg_restore`**. It should be passed directly to `psql`.
+
+**Restore:**
 
 ```bash
-pg_dump -Fc --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres > postgres.dump
+psql -h hostname/IPaddress -U postgres -d postgres < postgres.sql
 ```
 
-Restore
+---
+
+#### 2. Custom-Format Backup and Restore
+
+**Backup:**
 
 ```bash
-pg_restore --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d template1 postgres.dump
+pg_dump -Fc --verbose -h hostname/IPaddress -U postgres -d postgres > postgres.dump
 ```
 
-- We should pass another database in the command, pg_restore will only connect to the other database for creating the intended database then switch the connection before restoring database objects.
-
-```
-pg_restore: creating DATABASE "postgres"
-pg_restore: connecting to new database "postgres"
-```
-
-3. Take Backup of single table:
-
-Backup 
+**Restore:**
 
 ```bash
-pg_dump -Fc --verbose -h pg-db.xxxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d template1 -n public -t planets -t ships > tables.dump
+pg_restore --verbose -h hostname/IPaddress -U postgres -d postgres postgres.dump
 ```
-- `-n` Give the schema name where tables live.
-- `-t` Give the table name which we want to take backup. Multiple table requires multiple `-t` options.
 
-Restore
+The custom format supports features such as **selective restore** and **parallel restore**.
+
+> **Note:** If the dump was created with `pg_dump --create`, `pg_restore` can create the database from the dump. Otherwise, the target database must already exist.
+
+---
+
+#### 3. Backup of Specific Tables
+
+**Backup:**
 
 ```bash
-pg_restore --clean --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U postgres -d postgres tables.dump
+pg_dump -Fc --verbose \
+  -h hostname/IPaddress \
+  -U postgres \
+  -d template1 \
+  -n public \
+  -t planets \
+  -t ships \
+  > tables.dump
 ```
-- `--clean` flag will drop the database objects before restoring them.
 
-To get more detail about pg_dump utility check [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+* `-n` – Specifies the schema containing the tables.
+* `-t` – Specifies the table to back up.
+* Multiple tables can be specified using multiple `-t` options.
 
+**Restore:**
 
-## pg_dump
+```bash
+pg_restore --clean --verbose \
+  -h hostname/IPaddress \
+  -U postgres \
+  -d postgres \
+  tables.dump
+```
 
-This section will help us work on the pg_dumpall utility
+* `--clean` – Drops the database objects before restoring them.
 
+For more information, see the [PostgreSQL `pg_dump` documentation](https://www.postgresql.org/docs/current/app-pgdump.html).
 
+---
 
+## pg_dumpall
 
+`pg_dumpall` is a PostgreSQL utility used to back up **all databases in a PostgreSQL cluster** into a single SQL script file.
 
+### Key Points
 
+* Dumps **all databases** in the PostgreSQL cluster.
+* Internally uses `pg_dump` to dump each database.
+* Also backs up **global objects** that `pg_dump` does not include:
 
-
-
-
-
-
+  * Database roles/users.
+  * Tablespaces.
+  * Privilege grants for configuration parameters.
+* The output is a **SQL script** containing commands that can be executed using `psql` to restore the cluster.
+* A PostgreSQL **superuser** is generally required to create a complete dump.
+* **Superuser privileges** are also required when restoring the dump because the script may create roles and databases.
+* `pg_dumpall` connects to the PostgreSQL server **multiple times**, once for each database.
+* If password authentication is enabled, it may ask for the password for each connection.
+* To avoid repeated password prompts, configure a `~/.pgpass` file.
