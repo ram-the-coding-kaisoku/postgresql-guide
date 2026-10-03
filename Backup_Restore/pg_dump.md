@@ -1,4 +1,4 @@
-# PostgreSQL Backup Guide
+# PostgreSQL dump Guide
 
 ## pg_dump
 
