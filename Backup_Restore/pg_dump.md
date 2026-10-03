@@ -94,6 +94,10 @@ pg_restore --clean --verbose -h pg-db.xxxxxxx.ap-south-1.rds.amazonaws.com -U po
 To get more detail about pg_dump utility check [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
 
+## pg_dump
+
+This section will help us work on the pg_dumpall utility
+
 
 
 
