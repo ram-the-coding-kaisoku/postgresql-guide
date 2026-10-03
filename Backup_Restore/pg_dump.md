@@ -1,5 +1,3 @@
-Yes. I cleaned up the Markdown formatting, headings, tables, code blocks, links, and bullet points while keeping your technical content and examples intact. I also corrected a few Markdown issues in the PostgreSQL documentation link and table.
-
 # PostgreSQL Backup Guide
 
 ## pg_dump
@@ -140,3 +138,31 @@ For more information, see the [PostgreSQL `pg_dump` documentation](https://www.p
 * `pg_dumpall` connects to the PostgreSQL server **multiple times**, once for each database.
 * If password authentication is enabled, it may ask for the password for each connection.
 * To avoid repeated password prompts, configure a `~/.pgpass` file.
+
+### Sample Scenarios
+
+#### Dumps all database objects from a postgres cluster into a script file.
+
+**Backup:**
+
+```bash
+pg_dumpall --verbose --clean --if-exists > pg_cluster.out
+```
+
+**Restore:**
+
+```bash
+psql -X -f pg_cluster.out -d postgres
+```
+
+#### Dump only database roles and users.
+
+**Backup:**
+
+```bash
+pg_dumpall --verbose --clean --roles-only > pg_roles.out
+```
+
+For more information, see the [PostgreSQL `pg_dumpall` documentation](https://www.postgresql.org/docs/current/app-pg-dumpall.html).
+
+
